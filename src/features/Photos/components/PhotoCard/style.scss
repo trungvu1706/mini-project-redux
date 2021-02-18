@@ -1,0 +1,76 @@
+.photo {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+
+  & > img {
+    width: 100%;
+    transition: all 0.5 ease 0;
+  }
+
+  &__title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__overlay {
+    // position
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    // flex-box
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+
+    // width height
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+
+    // color, bg
+    color: rgba($color: #fff, $alpha: 0.8);
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    transition: all 0.35s ease 0s;
+  }
+
+  &__actions {
+    // flex-box
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    //transition, mg, pd, color
+    margin-top: 20px;
+    opacity: 0;
+    transition: all 0.35s ease 0s;
+    transform: translateY(1rem);
+
+    & > div {
+      width: 100%;
+      padding: 0 8px;
+    }
+
+    button {
+      width: 100%;
+    }
+  }
+
+  // when hover photo
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:hover > img {
+    transform: scale(1.25);
+  }
+
+  &:hover &__overlay,
+  &:hover &__actions {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
